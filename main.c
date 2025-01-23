@@ -4,13 +4,17 @@
 
 #define DEFAULT_PWD_LENGTH 15
 
+void throw_error(char *message) {
+    printf("\nERROR: %s\n\n", message);
+}
+
 unsigned char *generate_password(int length)
 {
     unsigned char *password = malloc(length + 1);
     // check that malloc doesn't return NULL (rarely happens, but it's good practice to check for this)
     if (password == NULL)
     {
-        printf("\nERROR: malloc failed, insufficient memory likely\n\n");
+        throw_error("malloc failed, insufficient memory likely");
         exit(EXIT_FAILURE);
     }
 
@@ -29,7 +33,7 @@ unsigned char *generate_password(int length)
     password[length] = '\0';
 
     // print the newly generated password for the user to copy
-    printf("%s", password);
+    printf("\nGENERATED PASSWORD: %s\n\n", password);
 
     return password;
 }
@@ -48,7 +52,7 @@ int main(int argc, char *argv[])
         // enforce password length restrictions
         if (length <= 0 || length > 64)
         {
-            printf("\nERROR: length cannot be greater than 64\n\n");
+            throw_error("length cannot be greater than 64");
             exit(EXIT_FAILURE);
         }
         password = generate_password(length);
