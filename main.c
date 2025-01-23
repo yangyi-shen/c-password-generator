@@ -2,16 +2,18 @@
 #include <stdlib.h>
 #include <time.h>
 
-unsigned char *generate_password(void)
+#define DEFAULT_PWD_LENGTH 15
+
+unsigned char *generate_password(int length)
 {
-    unsigned char *password = malloc(16);
+    unsigned char *password = malloc(length + 1);
     // check that malloc doesn't return NULL (rarely happens, but it's good practice to check for this)
     if (password == NULL) {
         printf("ERROR: malloc failed, insufficient memory likely\n");
         exit(EXIT_FAILURE);
     }
 
-    for (int i = 0; i < 15; i++)
+    for (int i = 0; i < length; i++)
     {
         // assign a random character to each index of the password string
         // fetches integers 33-127 (range of 94), exluding blank & undefined char values (except space ' ')
@@ -23,7 +25,7 @@ unsigned char *generate_password(void)
         password[i] = newChar;
     }
     // null-terminate password so that it is printable as a string
-    password[15] = '\0';
+    password[length] = '\0';
 
     // print the newly generated password for the user to copy
     printf("%s", password);
@@ -36,8 +38,8 @@ int main(int argc, char *argv[])
     // initialize rand() function using current timestamp
     srand(time(NULL));
 
-    // call generate_password function
-    unsigned char *password = generate_password();
+    // call generate_password function with default length
+    unsigned char *password = generate_password(DEFAULT_PWD_LENGTH);
 
     // here the password variable can be manipulated for more advanced features
 
