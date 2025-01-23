@@ -5,6 +5,6 @@ A simple password generator written in C.
 - [ ] Follow all items of NIST 2020 password guidelines not too inconvenient to implement
 - - [x] Default length of 15
 - - [ ] Minimum/maximum length of 8/64
-- - [ ] Support all printable ASCII characters
-- - [ ] Include spaces
-- - [ ] No complexity requirements (mixing uppercase, numerical, special characters etc.)
+- - [x] Support all printable ASCII characters
+- - [x] Include spaces
+- - [x] No complexity requirements (mixing uppercase, numerical, special characters etc.)
