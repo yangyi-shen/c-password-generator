@@ -1,0 +1,10 @@
+# cpassgen
+A simple password generator written in C.
+
+## todo list:
+- [ ] Follow all items of NIST 2020 password guidelines not too inconvenient to implement
+- - [x] Default length of 15
+- - [ ] Minimum/maximum length of 8/64
+- - [ ] Support all printable ASCII characters
+- - [ ] Include spaces
+- - [ ] No complexity requirements (mixing uppercase, numerical, special characters etc.)
