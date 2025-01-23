@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-int main(void)
+unsigned char *generate_password(void)
 {
-    // initialize rand() function using current timestamp
-    srand(time(NULL));
-
-    unsigned char password[16];
+    unsigned char *password = malloc(16);
+    // check that malloc doesn't return NULL (rarely happens, but it's good practice to check for this)
+    if (password == NULL) {
+        printf("ERROR: malloc failed, insufficient memory likely\n");
+        exit(EXIT_FAILURE);
+    }
 
     for (int i = 0; i < 15; i++)
     {
@@ -25,4 +27,22 @@ int main(void)
 
     // print the newly generated password for the user to copy
     printf("%s", password);
+
+    return password;
+}
+
+int main(int argc, char *argv[])
+{
+    // initialize rand() function using current timestamp
+    srand(time(NULL));
+
+    // call generate_password function
+    unsigned char *password = generate_password();
+
+    // here the password variable can be manipulated for more advanced features
+
+    // free memory allocated for password
+    free(password);
+
+    return 0;
 }
