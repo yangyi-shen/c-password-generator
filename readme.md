@@ -1,5 +1,5 @@
 # cpassgen
-A simple password generator written in C.
+A simple password generator I wrote to familiarise myself with the basics of C.
 
 ## how to run:
 1. Download this folder
