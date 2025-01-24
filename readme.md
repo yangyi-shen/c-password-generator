@@ -1,5 +1,5 @@
-# c-password-generator
-A simple password generator I wrote to familiarise myself with the basics of C.
+# password-generator
+A simple password generator I wrote to familiarize myself with the basics of C.
 
 ## how to run:
 1. Download this repository
